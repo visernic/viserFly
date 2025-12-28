@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Prevent infinite loop: 
+    # If the request is already going to public, stop rewriting.
+    RewriteRule ^public/ - [L]
+
+    # 2. Redirect everything to the public folder
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
